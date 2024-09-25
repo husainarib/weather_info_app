@@ -24,13 +24,13 @@ class WeatherHomePage extends StatefulWidget {
 }
 
 class _WeatherHomePageState extends State<WeatherHomePage> {
-  final TextEditingController _enterCity = TextEditingController();
+  final TextEditingController controller = TextEditingController();
   String city = 'City Name';
   String temperature = 'Temperature';
   String weatherCondition = 'Weather Condition';
 
   void _fetchWeather() {
-    String newcity = _enterCity.text;
+    String newcity = controller.text;
     Random random = Random();
     int randTemp = 15 + random.nextInt(16);
     List<String> weather = ["sunny", "cloudy", "rainy"];
@@ -55,7 +55,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextField(
-              controller: _enterCity,
+              controller: controller,
               decoration: InputDecoration(
                 labelText: 'Enter City Name',
                 border: OutlineInputBorder(),
