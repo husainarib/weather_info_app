@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp(WeatherApp());
@@ -29,7 +30,17 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
   String weatherCondition = 'Weather Condition';
 
   void _fetchWeather() {
-    //implement method
+    String newCityName = _enterCity.text;
+    Random random = Random();
+    int randTemp = 15 + random.nextInt(16);
+    List<String> weather = ["sunny", "cloudy", "rainy"];
+    String randWeather = weather[random.nextInt(weather.length)];
+
+    setState(() {
+      cityName = newCityName;
+      temperature = '$randTemp°C';
+      weatherCondition = randWeather;
+    });
   }
 
   @override
