@@ -25,19 +25,19 @@ class WeatherHomePage extends StatefulWidget {
 
 class _WeatherHomePageState extends State<WeatherHomePage> {
   final TextEditingController _enterCity = TextEditingController();
-  String cityName = 'City Name';
+  String city = 'City Name';
   String temperature = 'Temperature';
   String weatherCondition = 'Weather Condition';
 
   void _fetchWeather() {
-    String newCityName = _enterCity.text;
+    String newcity = _enterCity.text;
     Random random = Random();
     int randTemp = 15 + random.nextInt(16);
     List<String> weather = ["sunny", "cloudy", "rainy"];
     String randWeather = weather[random.nextInt(weather.length)];
 
     setState(() {
-      cityName = newCityName;
+      city = newcity;
       temperature = '$randTemp°C';
       weatherCondition = randWeather;
     });
@@ -69,7 +69,7 @@ class _WeatherHomePageState extends State<WeatherHomePage> {
               ),
             ),
             Text(
-              cityName,
+              city,
               style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
             ),
             Text(
